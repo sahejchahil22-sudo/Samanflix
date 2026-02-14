@@ -1,154 +1,298 @@
-// ---------- PASSWORD & HEARTS ----------
-const unlockBtn = document.getElementById("unlockBtn");
-const passwordInput = document.getElementById("passwordInput");
+// =========================
+// SETTINGS
+// =========================
+const correctPassword = "Saman0831";
+
+// =========================
+// MOVIES DATA (EDIT THIS)
+// =========================
+const movies = [
+  {
+    id: 1,
+    title: "First Meet",
+    cover: "cover1.jpeg",
+    desc: "The moment our story started 💕",
+    images: ["p1.jpg", "p2.jpeg"]
+  },
+  {
+    id: 2,
+    title: "The Promise of Forever",
+    cover: "cover2.jpeg",
+    desc: "That day still feels like magic; Time we exchanged the rings of promise✨",
+    images: ["p3.jpeg", "p4.JPG"]
+  },
+  {
+    id: 3,
+    title: "Special Moments",
+    cover: "cover3.jpeg",
+    desc: "Golden memories Together🥹",
+    images: ["p5.jpeg"]
+  },
+  {
+    id: 4,
+    title: "Big Day",
+    cover: "cover4.jpeg",
+    desc: "Loads of happiness and cheers to the new beginning",
+    images: ["p6.jpeg", "p7.jpeg"]
+  },
+  {
+    id: 5,
+    title: "Those Dance Moves",
+    cover: "cover5.jpeg",
+    desc: "Huge Applause for the Lovebirdies❤️",
+    images: ["p8.jpeg"]
+  },
+  {
+    id: 6,
+    title: "Another meet",
+    cover: "cover6.jpeg",
+    desc: "Unexpected meetups",
+    images: ["p9.jpeg","p10.jpeg"]
+  },
+  {
+    id: 7,
+    title: "Some candid/ Closeups",
+    cover: "cover7.jpeg",
+    desc: "The world looks better next to you; Closeness of LOVE 🌍",
+    images: ["p11.JPG"]
+  },
+  {
+    id: 8,
+    title: "You + Me, Lil Efforts Big Changes",
+    cover: "cover8.png",
+    desc: "Just us. Always. Forever. 💘",
+    images: ["p12.jpeg","p13.jpeg"]
+  },
+  {
+    id: 9,
+    title: "Lovely Memories",
+    cover: "cover9.jpeg",
+    desc: "You’re my best friend and my love ❤️",
+    images: ["p14.jpeg"]
+  },
+  {
+    id: 10,
+    title: "Heartfelt Moments",
+    cover: "cover10.JPG",
+    desc: "Longer Distance but close to the hearts 💍",
+    images: ["p15.JPG","p16.JPG"]
+  },
+  {
+    id: 11,
+    title: "Valentine Special",
+    cover: "cover11.jpeg",
+    desc: "A love letter in 12 movies 💌",
+    images: ["p17.jpeg","p18.jpeg"],
+    video: "" // Optional: add a link later
+  },
+  {
+    id: 12,
+    title: "Our Forever Trailer",
+    cover: "cover12.jpeg",
+    desc: "Welcome back, Daman. Your love story continues… 💕",
+    images: ["p19.JPG","p20.JPG"],
+    video: "" // Optional: add a link later
+  }
+];
+
+// =========================
+// ELEMENTS
+// =========================
 const lockScreen = document.getElementById("lockScreen");
+const mainSite = document.getElementById("mainSite");
+const passwordInput = document.getElementById("passwordInput");
+const unlockBtn = document.getElementById("unlockBtn");
 const errorMsg = document.getElementById("errorMsg");
 const heartsContainer = document.getElementById("heartsContainer");
-const mainSite = document.getElementById("mainSite");
 
-unlockBtn.addEventListener("click", () => {
-  const pw = passwordInput.value.trim();
-  if (pw === "Saman0831") {
-    errorMsg.textContent = "";
-    createHearts(35);
-    setTimeout(() => {
-      lockScreen.style.display = "none";
-      mainSite.classList.remove("hidden");
-      showToast("Welcome back, <b>Daman</b>. Your love story continues… 💕");
-    }, 1200);
-  } else {
-    errorMsg.textContent = "Wrong password, try again! ❤️";
-  }
-});
-
-function createHearts(num) {
-  for (let i = 0; i < num; i++) {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = 2 + Math.random() * 2 + "s";
-    heart.textContent = "❤️";
-    heartsContainer.appendChild(heart);
-    setTimeout(() => heart.remove(), 3500);
-  }
-}
-
-// ---------- WELCOME TOAST ----------
-function showToast(message) {
-  const toast = document.createElement("div");
-  toast.className = "toast";
-  toast.innerHTML = message;
-  document.body.appendChild(toast);
-  setTimeout(() => toast.classList.add("show"), 50);
-  setTimeout(() => {
-    toast.classList.remove("show");
-    setTimeout(() => toast.remove(), 350);
-  }, 3200);
-}
-
-// ---------- MOVIES SETUP ----------
 const continueRow = document.getElementById("continueRow");
 const myListRow = document.getElementById("myListRow");
 const movieRow = document.getElementById("movieRow");
 
-const movies = [
-  { id: 1, title: "Our First Meet", cover: "cover1.jpeg", desc: "A memory to cherish forever.", images: ["p1.jpg","p2.jpeg"], video: null },
-  { id: 2, title: "Promise of Forever ", cover: "cover2.jpeg", desc: "Our Special Day; We exchanged the rings of promise", images: ["p3.jpeg","p4.JPG"], video: null },
-  { id: 3, title: "Special Moments", cover: "cover3.jpeg", desc: "Golden moments together.", images: ["p5.jpeg"], video: null },
-  { id: 4, title: "Big Day", cover: "cover4.jpeg", desc: "Loads of happiness and cheers to the new beginning", images: ["p6.jpeg","p7.jpeg"], video: null },
-  { id: 5, title: "Those Dance Moves", cover: "cover5.jpeg", desc: "Huge Applause for the Lovebirdies", images: ["p8.jpeg"], video: null },
-  { id: 6, title: "Another meet", cover: "cover6.jpeg", desc: "Unexpected meetups", images: ["p9.jpeg","p10.jpeg"], video: null },
-  { id: 7, title: "Some candid/ Closeups", cover: "cover7.jpeg", desc: "Closeness of LOVE", images: ["p11.JPG"], video: null },
-  { id: 8, title: "Lil Efforts Big Changes", cover: "cover8.png", desc: "Celebrating you.", images: ["p12.jpeg","p13.jpeg"], video: null },
-  { id: 9, title: "Lovely Memories", cover: "cover9.jpeg", desc: "Nature and love.", images: ["p14.jpeg"], video: null },
-  { id: 10, title: "Heartfelt Moments", cover: "cover10.JPG", desc: "Longer Distance but close to the hearts.", images: ["p15.JPG","p16.JPG"], video: null },
-  { id: 11, title: "Valentine’s Day", cover: "cover11.jpeg", desc: "Our love story.", images: ["p17.jpeg","p18.jpeg"], video: "https://drive.google.com/file/d/1J_lhk07f-nd3TrS4e0virPVsFdtS7VMW/view?usp=sharing" },
-  { id: 12, title: "Forever Trailer", cover: "cover12.jpeg", desc: "Movie trailer of our love.", images: ["p19.JPG","p20.JPG"], video: "https://drive.google.com/file/d/1HYCGrXpy4hmNGbbPVEvwukwSI1p9MYqL/view?usp=sharing" }
-];
-
-const continueWatching = [movies[11], movies[3], movies[0], movies[1]];
-const myList = [movies[7], movies[5], movies[2], movies[11]];
-
-continueWatching.forEach(m => continueRow.appendChild(createCard(m)));
-myList.forEach(m => myListRow.appendChild(createCard(m)));
-movies.forEach(m => movieRow.appendChild(createCard(m)));
-
-function createCard(movie) {
-  const card = document.createElement("div");
-  card.className = "movie-card";
-  const img = document.createElement("img");
-  img.src = movie.cover;
-  card.appendChild(img);
-  card.addEventListener("click", () => openMovie(movie.id));
-  return card;
-}
-
-// ---------- MODAL ----------
-const modal = document.getElementById("movieModal");
+const movieModal = document.getElementById("movieModal");
 const modalCover = document.getElementById("modalCover");
 const modalTitle = document.getElementById("modalTitle");
 const modalDesc = document.getElementById("modalDesc");
-const modalVideo = document.getElementById("modalVideo");
 const slideImg = document.getElementById("slideImg");
 const playBtn = document.getElementById("playBtn");
+const modalVideo = document.getElementById("modalVideo");
 
-let currentSlide = 0;
+const topNav = document.getElementById("topNav");
+const welcomeToast = document.getElementById("welcomeToast");
+
+// =========================
+// HEARTS ANIMATION
+// =========================
+function spawnHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = Math.random() > 0.5 ? "💗" : "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+  heart.style.fontSize = (16 + Math.random() * 18) + "px";
+  heartsContainer.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 7000);
+}
+setInterval(spawnHeart, 380);
+
+// =========================
+// UNLOCK LOGIC
+// =========================
+unlockBtn.addEventListener("click", () => {
+  const entered = passwordInput.value.trim();
+
+  if (entered === correctPassword) {
+    errorMsg.textContent = "";
+
+    lockScreen.classList.add("hidden");
+    mainSite.classList.remove("hidden");
+
+    showToast();
+    renderRows();
+
+    // Auto open Movie 12 as trailer
+    setTimeout(() => openMovie(12), 1200);
+  } else {
+    errorMsg.textContent = "Wrong password 😭 Try again, Daman 💘";
+  }
+});
+
+passwordInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") unlockBtn.click();
+});
+
+// =========================
+// TOAST
+// =========================
+function showToast() {
+  welcomeToast.classList.remove("hidden");
+  setTimeout(() => welcomeToast.classList.add("hidden"), 4200);
+}
+
+// =========================
+// NAVBAR SCROLL EFFECT
+// =========================
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 40) topNav.classList.add("scrolled");
+  else topNav.classList.remove("scrolled");
+});
+
+// =========================
+// RENDER MOVIE ROWS
+// =========================
+function renderRows() {
+  continueRow.innerHTML = "";
+  myListRow.innerHTML = "";
+  movieRow.innerHTML = "";
+
+  // Continue Watching: show 1-4
+  movies.slice(0, 4).forEach((m) => continueRow.appendChild(makeCard(m)));
+
+  // My List: show 5-8
+  movies.slice(4, 8).forEach((m) => myListRow.appendChild(makeCard(m)));
+
+  // Top Picks: show 9-12
+  movies.slice(8, 12).forEach((m) => movieRow.appendChild(makeCard(m)));
+}
+
+function makeCard(movie) {
+  const card = document.createElement("div");
+  card.className = "movie-card";
+  card.onclick = () => openMovie(movie.id);
+
+  card.innerHTML = `
+    <img src="${movie.cover}" alt="${movie.title}">
+    <div class="title">${movie.title}</div>
+    <div class="mini">💞 Memory Movie</div>
+  `;
+  return card;
+}
+
+// =========================
+// MODAL + SLIDESHOW
+// =========================
 let currentMovie = null;
+let slideIndex = 0;
 
 function openMovie(id) {
-  currentMovie = movies.find(m => m.id === id);
-  modalCover.src = currentMovie.cover;
+  currentMovie = movies.find((m) => m.id === id);
+  if (!currentMovie) return;
+
+  movieModal.classList.remove("hidden");
+
   modalTitle.textContent = currentMovie.title;
   modalDesc.textContent = currentMovie.desc;
-  currentSlide = 0;
-  slideImg.src = currentMovie.images[0];
-  modalVideo.classList.add("hidden");
+
+  // Reset video
   modalVideo.pause();
-  modalVideo.src = "";
+  modalVideo.classList.add("hidden");
+  modalVideo.removeAttribute("src");
+  modalVideo.load();
 
-  if(currentMovie.video) {
+  // Show cover
+  modalCover.src = currentMovie.cover;
+  modalCover.classList.remove("hidden");
+
+  // Slideshow start
+  slideIndex = 0;
+  if (currentMovie.images && currentMovie.images.length > 0) {
+    slideImg.src = currentMovie.images[0];
+  } else {
+    slideImg.src = currentMovie.cover;
+  }
+
+  // Play button logic
+  if (currentMovie.video && currentMovie.video.trim() !== "") {
     playBtn.style.display = "inline-block";
-    function playVideo() {
-      modalVideo.src = currentMovie.video;
+    playBtn.onclick = () => {
+      modalCover.classList.add("hidden");
       modalVideo.classList.remove("hidden");
+      modalVideo.src = currentMovie.video;
       modalVideo.play();
-    }
-    playBtn.onclick = playVideo;
-
-    if(currentMovie.id === 12) { // Auto-play Movie 12
-      setTimeout(() => playVideo(), 600);
-    }
+    };
   } else {
     playBtn.style.display = "none";
   }
-
-  modal.classList.remove("hidden");
 }
 
 function closeModal() {
-  modal.classList.add("hidden");
+  movieModal.classList.add("hidden");
+
   modalVideo.pause();
-  modalVideo.src = "";
+  modalVideo.classList.add("hidden");
+  modalVideo.removeAttribute("src");
+  modalVideo.load();
 }
 
-// ---------- SLIDESHOW ----------
-function prevSlide() {
-  if(!currentMovie) return;
-  currentSlide = (currentSlide - 1 + currentMovie.images.length) % currentMovie.images.length;
-  slideImg.src = currentMovie.images[currentSlide];
-}
 function nextSlide() {
-  if(!currentMovie) return;
-  currentSlide = (currentSlide + 1) % currentMovie.images.length;
-  slideImg.src = currentMovie.images[currentSlide];
+  if (!currentMovie || !currentMovie.images) return;
+  slideIndex = (slideIndex + 1) % currentMovie.images.length;
+  slideImg.src = currentMovie.images[slideIndex];
 }
 
-// ---------- MUSIC ----------
-const bgMusic = document.getElementById("bgMusic");
-function toggleMusic() {
-  if(bgMusic.paused) bgMusic.play();
-  else bgMusic.pause();
+function prevSlide() {
+  if (!currentMovie || !currentMovie.images) return;
+  slideIndex = (slideIndex - 1 + currentMovie.images.length) % currentMovie.images.length;
+  slideImg.src = currentMovie.images[slideIndex];
 }
 
+// Close modal by clicking outside
+movieModal.addEventListener("click", (e) => {
+  if (e.target === movieModal) closeModal();
+});
 
+// =========================
+// SCROLL TO ROW
+// =========================
+function scrollToRow(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// =========================
+// INIT (for safety)
+// =========================
+renderRows();
 
