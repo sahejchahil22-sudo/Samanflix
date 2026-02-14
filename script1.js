@@ -52,18 +52,18 @@ const myListRow = document.getElementById("myListRow");
 const movieRow = document.getElementById("movieRow");
 
 const movies = [
-  { id: 1, title: "Our First Meet", cover: "assets/cover1.jpg", desc: "A memory to cherish forever.", images: ["assets/p1.jpg","assets/p2.jpg"], video: null },
-  { id: 2, title: "Promise of Forever ", cover: "assets/cover2.jpg", desc: "Our Special Day; We exchanged the rings of promise", images: ["assets/p3.jpg","assets/p4.jpg"], video: null },
-  { id: 3, title: "Special Moments", cover: "assets/cover3.jpg", desc: "Golden moments together.", images: ["assets/p5.jpg"], video: null },
-  { id: 4, title: "Big Day", cover: "assets/cover4.jpg", desc: "Loads of happiness and cheers to the new beginning", images: ["assets/p6.jpg","assets/p7.jpg"], video: null },
-  { id: 5, title: "Those Dance Moves", cover: "assets/cover5.jpg", desc: "Huge Applause for the Lovebirdies", images: ["assets/p8.jpg"], video: null },
-  { id: 6, title: "Another meet", cover: "assets/cover6.jpg", desc: "Unexpected meetups", images: ["assets/p9.jpg","assets/p10.jpg"], video: null },
-  { id: 7, title: "Some candid/ Closeups", cover: "assets/cover7.jpg", desc: "Closeness of LOVE", images: ["assets/p11.jpg"], video: null },
-  { id: 8, title: "Lil Efforts Big Changes", cover: "assets/cover8.jpg", desc: "Celebrating you.", images: ["assets/p12.jpg","assets/p13.jpg"], video: null },
-  { id: 9, title: "Lovely Memories", cover: "assets/cover9.jpg", desc: "Nature and love.", images: ["assets/p14.jpg"], video: null },
-  { id: 10, title: "Heartfelt Moments", cover: "assets/cover10.jpg", desc: "Longer Distance but close to the hearts.", images: ["assets/p15.jpg","assets/p16.jpg"], video: null },
-  { id: 11, title: "Valentine’s Day", cover: "assets/cover11.jpg", desc: "Our love story.", images: ["assets/p17.jpg","assets/p18.jpg"], video: "https://drive.google.com/file/d/1J_lhk07f-nd3TrS4e0virPVsFdtS7VMW/view?usp=sharing" },
-  { id: 12, title: "Forever Trailer", cover: "assets/cover12.jpg", desc: "Movie trailer of our love.", images: ["assets/p19.jpg","assets/p20.jpg"], video: "https://drive.google.com/file/d/1HYCGrXpy4hmNGbbPVEvwukwSI1p9MYqL/view?usp=sharing" }
+  { id: 1, title: "Our First Meet", cover: "cover1.jpg", desc: "A memory to cherish forever.", images: ["p1.jpg","p2.jpg"], video: null },
+  { id: 2, title: "Promise of Forever ", cover: "cover2.jpg", desc: "Our Special Day; We exchanged the rings of promise", images: ["p3.jpg","p4.jpg"], video: null },
+  { id: 3, title: "Special Moments", cover: "cover3.jpg", desc: "Golden moments together.", images: ["p5.jpg"], video: null },
+  { id: 4, title: "Big Day", cover: "cover4.jpg", desc: "Loads of happiness and cheers to the new beginning", images: ["p6.jpg","p7.jpg"], video: null },
+  { id: 5, title: "Those Dance Moves", cover: "cover5.jpg", desc: "Huge Applause for the Lovebirdies", images: ["p8.jpg"], video: null },
+  { id: 6, title: "Another meet", cover: "cover6.jpg", desc: "Unexpected meetups", images: ["p9.jpg","p10.jpg"], video: null },
+  { id: 7, title: "Some candid/ Closeups", cover: "cover7.jpg", desc: "Closeness of LOVE", images: ["p11.jpg"], video: null },
+  { id: 8, title: "Lil Efforts Big Changes", cover: "cover8.jpg", desc: "Celebrating you.", images: ["p12.jpg","p13.jpg"], video: null },
+  { id: 9, title: "Lovely Memories", cover: "cover9.jpg", desc: "Nature and love.", images: ["p14.jpg"], video: null },
+  { id: 10, title: "Heartfelt Moments", cover: "cover10.jpg", desc: "Longer Distance but close to the hearts.", images: ["p15.jpg","p16.jpg"], video: null },
+  { id: 11, title: "Valentine’s Day", cover: "cover11.jpg", desc: "Our love story.", images: ["p17.jpg","p18.jpg"], video: "https://drive.google.com/file/d/1J_lhk07f-nd3TrS4e0virPVsFdtS7VMW/view?usp=sharing" },
+  { id: 12, title: "Forever Trailer", cover: "cover12.jpg", desc: "Movie trailer of our love.", images: ["p19.jpg","p20.jpg"], video: "https://drive.google.com/file/d/1HYCGrXpy4hmNGbbPVEvwukwSI1p9MYqL/view?usp=sharing" }
 ];
 
 const continueWatching = [movies[11], movies[3], movies[0], movies[1]];
@@ -149,4 +149,5 @@ function toggleMusic() {
   if(bgMusic.paused) bgMusic.play();
   else bgMusic.pause();
 }
+
 
