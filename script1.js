@@ -62,8 +62,8 @@ const movies = [
   { id: 8, title: "Lil Efforts Big Changes", cover: "assets/cover8.jpg", desc: "Celebrating you.", images: ["assets/p12.jpg","assets/p13.jpg"], video: null },
   { id: 9, title: "Lovely Memories", cover: "assets/cover9.jpg", desc: "Nature and love.", images: ["assets/p14.jpg"], video: null },
   { id: 10, title: "Heartfelt Moments", cover: "assets/cover10.jpg", desc: "Longer Distance but close to the hearts.", images: ["assets/p15.jpg","assets/p16.jpg"], video: null },
-  { id: 11, title: "Valentine’s Day", cover: "assets/cover11.jpg", desc: "Our love story.", images: ["assets/p17.jpg","assets/p18.jpg"], video: "assets/secondvideo.mp4" },
-  { id: 12, title: "Forever Trailer", cover: "assets/cover12.jpg", desc: "Movie trailer of our love.", images: ["assets/p19.jpg","assets/p20.jpg"], video: "assets/mainvideo.mp4" }
+  { id: 11, title: "Valentine’s Day", cover: "assets/cover11.jpg", desc: "Our love story.", images: ["assets/p17.jpg","assets/p18.jpg"], video: "https://drive.google.com/file/d/1J_lhk07f-nd3TrS4e0virPVsFdtS7VMW/view?usp=sharing" },
+  { id: 12, title: "Forever Trailer", cover: "assets/cover12.jpg", desc: "Movie trailer of our love.", images: ["assets/p19.jpg","assets/p20.jpg"], video: "https://drive.google.com/file/d/1HYCGrXpy4hmNGbbPVEvwukwSI1p9MYqL/view?usp=sharing" }
 ];
 
 const continueWatching = [movies[11], movies[3], movies[0], movies[1]];
@@ -149,3 +149,4 @@ function toggleMusic() {
   if(bgMusic.paused) bgMusic.play();
   else bgMusic.pause();
 }
+
