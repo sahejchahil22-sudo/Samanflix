@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samanflix 💕</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <div id="lockScreen" class="lock-screen">
+    <div class="lock-card">
+      <h1 class="logo">Saman<span>flix</span></h1>
+      <p class="subtitle">Only <b>Daman</b> can unlock this 💘</p>
+      <div class="badge">Marrying Soon 💍</div>
+      <input id="passwordInput" type="password" placeholder="Enter password..." />
+      <button id="unlockBtn">Unlock</button>
+      <p id="errorMsg" class="error"></p>
+      <p class="hint">Hint: It’s something special 🥹
+	                        Maybe a special Date??</p>
+    </div>
+    <div id="heartsContainer"></div>
+  </div>
+
+  <!-- MAIN SITE -->
+  <div id="mainSite" class="hidden">
+
+    <!-- TOP NAV -->
+    <header class="top-nav">
+      <h1 class="logo small">Saman<span>flix</span></h1>
+      <div class="nav-right">
+        <span class="soon">Marrying Soon 💍</span>
+        <div class="profile">
+          <div class="avatar">D</div>
+          <span>Daman</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-overlay">
+        <h2>Top Pick for You 💘</h2>
+        <h1 class="hero-title">Our Forever</h1>
+        <p class="hero-desc">
+          A collection of our memories, moments, and the love that keeps growing.
+        </p>
+        <div class="hero-actions">
+          <button class="hero-btn" onclick="openMovie(12)">▶ Play</button>
+          <button class="hero-btn ghost" onclick="toggleMusic()">♪ Music</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROW 1 -->
+    <section class="row">
+      <h3>Continue Watching</h3>
+      <div class="movie-row" id="continueRow"></div>
+    </section>
+
+    <!-- ROW 2 -->
+    <section class="row">
+      <h3>My List ❤️</h3>
+      <div class="movie-row" id="myListRow"></div>
+    </section>
+
+    <!-- ROW 3 -->
+    <section class="row">
+      <h3>Top Picks for Daman</h3>
+      <div class="movie-row" id="movieRow"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      Made with love by <b>Sahej</b> 💕 for <b>Daman</b>.
+    </footer>
+  </div>
+
+  <!-- POPUP MODAL -->
+  <div id="movieModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">✕</span>
+      <img id="modalCover" class="modal-cover" src="" alt="Movie Cover" />
+      <h2 id="modalTitle"></h2>
+      <p id="modalDesc"></p>
+
+      <!-- SLIDESHOW -->
+      <div class="slideshow">
+        <button class="slide-btn" onclick="prevSlide()">‹</button>
+        <img id="slideImg" src="" alt="Memory Photo" />
+        <button class="slide-btn" onclick="nextSlide()">›</button>
+      </div>
+
+      <div class="modal-buttons">
+        <button id="playBtn" class="play-btn">▶ Play Video</button>
+      </div>
+
+      <video id="modalVideo" controls class="hidden"></video>
+    </div>
+  </div>
+
+  <!-- BACKGROUND MUSIC (optional) -->
+  <audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script1.js"></script>
+</body>
+</html>
