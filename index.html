@@ -152,11 +152,36 @@
     </div>
   </div>
 
-  <script src="./script.js"></script>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const lockScreen = document.getElementById("lockScreen");
+  const mainSite = document.getElementById("mainSite");
+  const passwordInput = document.getElementById("passwordInput");
+  const unlockBtn = document.getElementById("unlockBtn");
+  const errorMsg = document.getElementById("errorMsg");
+
+  const correctPassword = "Saman0831";
+
+  unlockBtn.addEventListener("click", () => {
+    const entered = passwordInput.value.trim();
+    if (entered === correctPassword) {
+      lockScreen.classList.add("hidden");
+      mainSite.classList.remove("hidden");
+    } else {
+      errorMsg.textContent = "Wrong password 😭 Try again, Daman 💘";
+    }
+  });
+
+  passwordInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") unlockBtn.click();
+  });
+});
+</script>
   <audio id="movie-audio" controls></audio>
 
 </body>
 </html>
+
 
 
 
