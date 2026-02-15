@@ -335,7 +335,7 @@ button {
   top:0; left:0;
   width:100vw;
   height:100vh;
-  background: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -359,7 +359,7 @@ button {
   right:0.5rem;
   background: transparent;
   color: #fff;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .modal-hero {
@@ -368,8 +368,8 @@ button {
 
 .modal-cover {
   width: 100%;
-  max-height: 300px;
-  object-fit: cover;
+  max-height: 400px; /* increased so main cover is visible */
+  object-fit: contain; /* previously was cover, now fully visible */
   border-radius: 12px;
   margin-bottom: 0.5rem;
 }
@@ -411,15 +411,16 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.7rem;
+  margin-top: 1rem; /* more spacing */
   gap: 0.5rem;
+  flex-wrap: wrap; /* allow images to wrap if too many */
 }
 
 .slideshow img {
-  width: 120px;
-  max-height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 200px; /* bigger images */
+  max-height: 200px;
+  object-fit: contain; /* show full image without cropping */
+  border-radius: 10px;
 }
 
 .slide-btn {
