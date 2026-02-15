@@ -6,6 +6,7 @@
   <title>Samanflix 💕</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
   <!-- PASSWORD SCREEN -->
@@ -37,14 +38,12 @@
     <header class="top-nav" id="topNav">
       <div class="nav-left">
         <h1 class="logo small">Saman<span>flix</span></h1>
-
         <nav class="nav-links">
           <a href="#continue">Home</a>
           <a href="#mylist">My List</a>
           <a href="#picks">Top Picks</a>
         </nav>
       </div>
-
       <div class="nav-right">
         <span class="soon">Marrying Soon 💍</span>
         <div class="profile">
@@ -62,27 +61,23 @@
     <!-- HERO -->
     <section class="hero" aria-label="Hero Banner">
       <div class="hero-bg"></div>
-
       <div class="hero-overlay">
         <div class="hero-meta">✨ Top Pick for You</div>
         <h1 class="hero-title">Our Forever</h1>
-
         <p class="hero-desc">
           A collection of our memories, moments, and the love that keeps growing.
         </p>
-
         <div class="hero-actions">
           <button class="hero-btn" onclick="openMovie(12)">▶ Play Trailer</button>
           <button class="hero-btn ghost" onclick="scrollToRow('mylist')">＋ My List</button>
         </div>
-
         <div class="hero-note">
           <span>Made by Sahej</span> • <span>For Daman</span> • <span>Marrying soon 💍</span>
         </div>
       </div>
     </section>
 
-    <!-- ROW 1 -->
+    <!-- ROWS -->
     <section class="row" id="continue">
       <div class="row-header">
         <h3>Continue Watching</h3>
@@ -91,7 +86,6 @@
       <div class="movie-row" id="continueRow"></div>
     </section>
 
-    <!-- ROW 2 -->
     <section class="row" id="mylist">
       <div class="row-header">
         <h3>My List ❤️</h3>
@@ -100,7 +94,6 @@
       <div class="movie-row" id="myListRow"></div>
     </section>
 
-    <!-- ROW 3 -->
     <section class="row" id="picks">
       <div class="row-header">
         <h3>Top Picks for Daman</h3>
@@ -118,18 +111,15 @@
   <!-- POPUP MODAL -->
   <div id="movieModal" class="modal hidden">
     <div class="modal-content">
-
       <button class="close-btn" onclick="closeModal()">✕</button>
 
-      <!-- TOP VIDEO/IMAGE AREA -->
       <div class="modal-hero">
-        <img id="modalCover" class="modal-cover" src="" alt="Movie Cover" />
+        <img id="modalCover" class="modal-cover" />
         <video id="modalVideo" controls class="hidden"></video>
 
         <div class="modal-hero-overlay">
           <h2 id="modalTitle"></h2>
           <p id="modalDesc"></p>
-
           <div class="modal-buttons">
             <button id="playBtn" class="play-btn">▶ Play</button>
             <button class="ghost-btn" onclick="closeModal()">Close</button>
@@ -137,22 +127,19 @@
         </div>
       </div>
 
-      <!-- SLIDESHOW -->
       <div class="slideshow">
         <button class="slide-btn" onclick="prevSlide()">‹</button>
-        <img id="slideImg" src="" alt="Memory Photo" />
+        <img id="slideImg" />
         <button class="slide-btn" onclick="nextSlide()">›</button>
       </div>
 
       <div class="modal-bottom-note">
         💕 Every photo here is a scene from our real love story.
       </div>
-
     </div>
   </div>
 
   <audio id="movie-audio" controls></audio>
-
   <script src="script.js"></script>
 </body>
 </html>
