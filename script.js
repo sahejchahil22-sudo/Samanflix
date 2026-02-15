@@ -152,20 +152,13 @@ setInterval(spawnHeart, 380);
 // =========================
 unlockBtn.addEventListener("click", () => {
   const entered = passwordInput.value.trim();
-
+  alert("Entered: '" + entered + "'"); // debug line
   if (entered === correctPassword) {
-    errorMsg.textContent = "";
-
+    alert("Password correct!");       // debug line
     lockScreen.classList.add("hidden");
     mainSite.classList.remove("hidden");
-
-    showToast();
-    renderRows();
-
-    // Auto open Movie 12 as trailer
-    setTimeout(() => openMovie(12), 1200);
   } else {
-    errorMsg.textContent = "Wrong password 😭 Try again, Daman 💘";
+    alert("Wrong password");
   }
 });
 
@@ -310,6 +303,7 @@ function scrollToRow(id) {
 // INIT (for safety)
 // =========================
 renderRows();
+
 
 
 
