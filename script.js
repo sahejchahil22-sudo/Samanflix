@@ -12,70 +12,81 @@ const movies = [
     title: "First Meet",
     cover: "cover1.jpeg",
     desc: "The moment our story started 💕",
-    images: ["p1.jpg", "p2.jpeg"]
+    images: ["p1.jpg", "p2.jpeg"],
+    song: "songs/movie1.mp3"
+    
   },
   {
     id: 2,
     title: "The Promise of Forever",
     cover: "cover2.jpeg",
     desc: "That day still feels like magic; Time we exchanged the rings of promise✨",
-    images: ["p3.jpeg", "p4.JPG"]
+    images: ["p3.jpeg", "p4.JPG"],
+    song: "songs/movie2.mp3"
   },
   {
     id: 3,
     title: "Special Moments",
     cover: "cover3.jpeg",
     desc: "Golden memories Together🥹",
-    images: ["p5.jpeg"]
+    images: ["p5.jpeg"],
+    song: "songs/movie3.mp3"
   },
   {
     id: 4,
     title: "Big Day",
     cover: "cover4.jpeg",
     desc: "Loads of happiness and cheers to the new beginning",
-    images: ["p6.jpeg", "p7.jpeg"]
+    images: ["p6.jpeg", "p7.jpeg"],
+    song: "songs/movie4.mp3"
   },
   {
     id: 5,
     title: "Those Dance Moves",
     cover: "cover5.jpeg",
     desc: "Huge Applause for the Lovebirdies❤️",
-    images: ["p8.jpeg"]
+    images: ["p8.jpeg"],
+    song: "songs/movie5.mp3"
   },
   {
     id: 6,
     title: "Another meet",
     cover: "cover6.jpeg",
     desc: "Unexpected meetups",
-    images: ["p9.jpeg","p10.jpeg"]
+    images: ["p9.jpeg","p10.jpeg"],
+    song: "songs/movie6.mp3"
   },
   {
     id: 7,
     title: "Some candid/ Closeups",
     cover: "cover7.jpeg",
     desc: "The world looks better next to you; Closeness of LOVE 🌍",
-    images: ["p11.JPG"]
+    images: ["p11.JPG"],
+    song: "songs/movie7.mp3"
   },
   {
     id: 8,
     title: "You + Me, Lil Efforts Big Changes",
     cover: "cover8.png",
     desc: "Just us. Always. Forever. 💘",
-    images: ["p12.jpeg","p13.jpeg"]
+    images: ["p12.jpeg","p13.jpeg"],
+    song: "songs/movie8.mp3"
   },
   {
     id: 9,
     title: "Lovely Memories",
     cover: "cover9.jpeg",
     desc: "You’re my best friend and my love ❤️",
-    images: ["p14.jpeg"]
+    images: ["p14.jpeg"],
+    song: "songs/movie9.mp3"
   },
   {
     id: 10,
     title: "Heartfelt Moments",
     cover: "cover10.JPG",
     desc: "Longer Distance but close to the hearts 💍",
-    images: ["p15.JPG","p16.JPG"]
+    images: ["p15.JPG","p16.JPG"],
+    song: "songs/movie10.mp3"
   },
   {
     id: 11,
@@ -83,7 +94,7 @@ const movies = [
     cover: "cover11.jpeg",
     desc: "A love letter in 12 movies 💌",
     images: ["p17.jpeg","p18.jpeg"],
-    video: "" // Optional: add a link later
+    song: "songs/movie11.mp3"
   },
   {
     id: 12,
@@ -91,7 +102,7 @@ const movies = [
     cover: "cover12.jpeg",
     desc: "Welcome back, Daman. Your love story continues… 💕",
     images: ["p19.JPG","p20.JPG"],
-    video: "" // Optional: add a link later
+    song: "songs/movie12.mp3"
   }
 ];
 
@@ -295,4 +306,5 @@ function scrollToRow(id) {
 // INIT (for safety)
 // =========================
 renderRows();
+
 
