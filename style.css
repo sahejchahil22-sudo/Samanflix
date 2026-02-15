@@ -344,12 +344,13 @@ button {
 
 .modal-content {
   position: relative;
-  max-width: 800px;
+  max-width: 90%;
   width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
   background: #222;
   padding: 1rem;
   border-radius: 12px;
-  overflow: hidden;
 }
 
 .close-btn {
@@ -367,6 +368,8 @@ button {
 
 .modal-cover {
   width: 100%;
+  max-height: 300px;
+  object-fit: cover;
   border-radius: 12px;
   margin-bottom: 0.5rem;
 }
@@ -413,8 +416,10 @@ button {
 }
 
 .slideshow img {
-  width: 200px;
-  border-radius: 12px;
+  width: 120px;
+  max-height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .slide-btn {
