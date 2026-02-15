@@ -1,7 +1,7 @@
 // =========================
 // SETTINGS & DATA
 // =========================
-const correctPassword = "Saman0831";
+const correctPassword = "Saman0831"; // change to your desired password
 
 const movies = [
   {id:1,title:"First Meet",cover:"cover1.jpeg",desc:"The moment our story started 💕",images:["p1.jpg","p2.jpeg"],song:"songs/movie1.mp3"},
@@ -27,6 +27,25 @@ const passwordInput = document.getElementById("passwordInput");
 const unlockBtn = document.getElementById("unlockBtn");
 const errorMsg = document.getElementById("errorMsg");
 const heartsContainer = document.getElementById("heartsContainer");
+const welcomeToast = document.getElementById("welcomeToast");
+
+// Rows
+const continueRow = document.getElementById("continueRow");
+const myListRow = document.getElementById("myListRow");
+const movieRow = document.getElementById("movieRow");
+
+// Modal
+const movieModal = document.getElementById("movieModal");
+const modalCover = document.getElementById("modalCover");
+const modalTitle = document.getElementById("modalTitle");
+const modalDesc = document.getElementById("modalDesc");
+const modalVideo = document.getElementById("modalVideo");
+const slideImg = document.getElementById("slideImg");
+const playBtn = document.getElementById("playBtn");
+const audioPlayer = document.getElementById("movie-audio");
+
+let currentMovie = null;
+let slideIndex = 0;
 
 // =========================
 // LOCK SCREEN LOGIC
@@ -62,11 +81,12 @@ function spawnHeart() {
 setInterval(spawnHeart, 380);
 
 // =========================
-// MAIN SITE INIT
+// INIT MAIN SITE
 // =========================
 function initMainSite() {
   renderRows();
   showToast();
+
   window.addEventListener("scroll", () => {
     const topNav = document.getElementById("topNav");
     if (window.scrollY > 40) topNav.classList.add("scrolled");
@@ -78,19 +98,14 @@ function initMainSite() {
 // TOAST
 // =========================
 function showToast() {
-  const toast = document.getElementById("welcomeToast");
-  toast.classList.remove("hidden");
-  setTimeout(() => toast.classList.add("hidden"), 4200);
+  welcomeToast.classList.remove("hidden");
+  setTimeout(() => welcomeToast.classList.add("hidden"), 4200);
 }
 
 // =========================
 // RENDER MOVIES
 // =========================
 function renderRows() {
-  const continueRow = document.getElementById("continueRow");
-  const myListRow = document.getElementById("myListRow");
-  const movieRow = document.getElementById("movieRow");
-
   continueRow.innerHTML = "";
   myListRow.innerHTML = "";
   movieRow.innerHTML = "";
@@ -104,43 +119,24 @@ function makeCard(movie) {
   const card = document.createElement("div");
   card.className = "movie-card";
   card.onclick = () => openMovie(movie.id);
-  card.innerHTML = `
-    <img src="${movie.cover}" alt="${movie.title}">
-    <div class="title">${movie.title}</div>
-    <div class="mini">💞 Memory Movie</div>
-  `;
+  card.innerHTML = `<img src="${movie.cover}" alt="${movie.title}"><div class="title">${movie.title}</div><div class="mini">💞 Memory Movie</div>`;
   return card;
 }
 
 // =========================
 // MODAL + SLIDESHOW
 // =========================
-let currentMovie = null;
-let slideIndex = 0;
-
 function openMovie(id){
   currentMovie = movies.find(m=>m.id===id);
   if(!currentMovie) return;
 
   // AUDIO
-  const audio = document.getElementById("movie-audio");
-  if(currentMovie.song){ 
-    audio.src=currentMovie.song; 
-    audio.play().catch(()=>{}); 
-  } else {
-    audio.pause();
-    audio.src = "";
-  }
+  if(currentMovie.song){
+    audioPlayer.src = currentMovie.song;
+    audioPlayer.play().catch(()=>{});
+  } else audioPlayer.pause();
 
   // MODAL
-  const movieModal = document.getElementById("movieModal");
-  const modalCover = document.getElementById("modalCover");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalDesc = document.getElementById("modalDesc");
-  const slideImg = document.getElementById("slideImg");
-  const playBtn = document.getElementById("playBtn");
-  const modalVideo = document.getElementById("modalVideo");
-
   movieModal.classList.remove("hidden");
   modalTitle.textContent = currentMovie.title;
   modalDesc.textContent = currentMovie.desc;
@@ -153,48 +149,42 @@ function openMovie(id){
   modalCover.src = currentMovie.cover;
   modalCover.classList.remove("hidden");
 
-  // SLIDESHOW
   slideIndex = 0;
-  if(currentMovie.images.length){
-    slideImg.src = currentMovie.images[slideIndex];
-  } else {
-    slideImg.src = "";
-  }
+  slideImg.src = currentMovie.images[slideIndex];
+  slideImg.classList.remove("hidden");
 
-  // PLAY BUTTON HIDE (no video)
+  // Play button logic
   if(currentMovie.video){
-    playBtn.style.display="inline-block";
-    playBtn.onclick=()=>{
+    playBtn.style.display = "inline-block";
+    playBtn.onclick = () => {
       modalCover.classList.add("hidden");
+      slideImg.classList.add("hidden");
       modalVideo.classList.remove("hidden");
-      modalVideo.src=currentMovie.video;
+      modalVideo.src = currentMovie.video;
       modalVideo.play();
     }
-  } else {
-    playBtn.style.display="none";
-  }
+  } else playBtn.style.display="none";
 }
 
 function nextSlide(){
-  if(!currentMovie || !currentMovie.images.length) return;
+  if(!currentMovie) return;
   slideIndex = (slideIndex + 1) % currentMovie.images.length;
-  document.getElementById("slideImg").src = currentMovie.images[slideIndex];
+  slideImg.src = currentMovie.images[slideIndex];
 }
 
 function prevSlide(){
-  if(!currentMovie || !currentMovie.images.length) return;
+  if(!currentMovie) return;
   slideIndex = (slideIndex - 1 + currentMovie.images.length) % currentMovie.images.length;
-  document.getElementById("slideImg").src = currentMovie.images[slideIndex];
+  slideImg.src = currentMovie.images[slideIndex];
 }
 
 function closeModal(){
-  const modalVideo = document.getElementById("modalVideo");
-  document.getElementById("movieModal").classList.add("hidden");
+  movieModal.classList.add("hidden");
   modalVideo.pause();
   modalVideo.classList.add("hidden");
   modalVideo.removeAttribute("src");
   modalVideo.load();
-  currentMovie = null;
+  audioPlayer.pause();
 }
 
 // =========================
@@ -202,13 +192,12 @@ function closeModal(){
 // =========================
 function scrollToRow(id){
   const el = document.getElementById(id);
-  if(!el) return;
-  el.scrollIntoView({behavior:"smooth", block:"start"});
+  if(el) el.scrollIntoView({behavior:"smooth", block:"start"});
 }
 
 // =========================
 // CLOSE MODAL ON OUTSIDE CLICK
 // =========================
-document.getElementById("movieModal").addEventListener("click",(e)=>{
-  if(e.target===document.getElementById("movieModal")) closeModal();
+movieModal.addEventListener("click",(e)=>{
+  if(e.target===movieModal) closeModal();
 });
