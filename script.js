@@ -230,6 +230,13 @@ function openMovie(id) {
   currentMovie = movies.find((m) => m.id === id);
   if (!currentMovie) return;
 
+  // 🎵 PLAY SONG FOR EACH MOVIE
+  const audio = document.getElementById("movie-audio");
+  if (audio && currentMovie.song) {
+    audio.src = currentMovie.song;
+    audio.play().catch(() => {});
+  }
+
   movieModal.classList.remove("hidden");
 
   modalTitle.textContent = currentMovie.title;
@@ -245,13 +252,10 @@ function openMovie(id) {
   modalCover.src = currentMovie.cover;
   modalCover.classList.remove("hidden");
 
-  // Slideshow start
-  slideIndex = 0;
-  if (currentMovie.images && currentMovie.images.length > 0) {
-    slideImg.src = currentMovie.images[0];
-  } else {
-    slideImg.src = currentMovie.cover;
-  }
+  // Start slideshow
+  currentSlide = 0;
+  updateSlide();
+}
 
   // Play button logic
   if (currentMovie.video && currentMovie.video.trim() !== "") {
@@ -306,5 +310,6 @@ function scrollToRow(id) {
 // INIT (for safety)
 // =========================
 renderRows();
+
 
 
